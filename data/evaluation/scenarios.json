@@ -1,0 +1,396 @@
+[
+ {
+  "id": "S01",
+  "category": "order_status",
+  "customer": "C101",
+  "messages": [
+   "Where is order ORD1024?"
+  ],
+  "expected_intent": "order_status",
+  "expected_phrase": "is delivered",
+  "expected_status": null
+ },
+ {
+  "id": "S02",
+  "category": "order_status",
+  "customer": "C101",
+  "messages": [
+   "Track ORD1026"
+  ],
+  "expected_intent": "order_status",
+  "expected_phrase": "in transit",
+  "expected_status": null
+ },
+ {
+  "id": "S03",
+  "category": "order_status",
+  "customer": "C102",
+  "messages": [
+   "Where is order ORD1028?"
+  ],
+  "expected_intent": "order_status",
+  "expected_phrase": "is cancelled",
+  "expected_status": null
+ },
+ {
+  "id": "S04",
+  "category": "policy",
+  "customer": "C101",
+  "messages": [
+   "What is your return policy?"
+  ],
+  "expected_intent": "policy_question",
+  "expected_phrase": "within 15 days",
+  "expected_status": null
+ },
+ {
+  "id": "S05",
+  "category": "policy",
+  "customer": "C101",
+  "messages": [
+   "What is your refund policy?"
+  ],
+  "expected_intent": "policy_question",
+  "expected_phrase": "within 30 days",
+  "expected_status": null
+ },
+ {
+  "id": "S06",
+  "category": "policy",
+  "customer": "C101",
+  "messages": [
+   "Can you explain your cancellation policy?"
+  ],
+  "expected_intent": "policy_question",
+  "expected_phrase": "cancelled before they ship",
+  "expected_status": null
+ },
+ {
+  "id": "S07",
+  "category": "refund",
+  "customer": "C101",
+  "messages": [
+   "I received a damaged product. I want a refund for order ORD1024."
+  ],
+  "expected_intent": "refund",
+  "expected_phrase": "processed (simulated) and verified",
+  "expected_status": "RESOLVED",
+  "decision": "approve"
+ },
+ {
+  "id": "S08",
+  "category": "refund",
+  "customer": "C101",
+  "messages": [
+   "I want my money back for ORD1024"
+  ],
+  "expected_intent": "refund",
+  "expected_phrase": "Photo evidence missing",
+  "expected_status": "REJECTED",
+  "decision": "reject",
+  "reason": "Photo evidence missing"
+ },
+ {
+  "id": "S09",
+  "category": "return",
+  "customer": "C101",
+  "messages": [
+   "I want to return order ORD1024"
+  ],
+  "expected_intent": "return",
+  "expected_phrase": "processed (simulated) and verified",
+  "expected_status": "RESOLVED",
+  "decision": "approve"
+ },
+ {
+  "id": "S10",
+  "category": "replacement",
+  "customer": "C101",
+  "messages": [
+   "ORD1024 arrived defective, please replace it"
+  ],
+  "expected_intent": "replacement",
+  "expected_phrase": "processed (simulated) and verified",
+  "expected_status": "RESOLVED",
+  "decision": "approve"
+ },
+ {
+  "id": "S11",
+  "category": "approval_gate",
+  "customer": "C101",
+  "messages": [
+   "Refund order ORD1024"
+  ],
+  "expected_intent": "refund",
+  "expected_phrase": "awaiting support approval",
+  "expected_status": "AWAITING_APPROVAL"
+ },
+ {
+  "id": "S12",
+  "category": "approval_gate",
+  "customer": "C101",
+  "messages": [
+   "Refund order ORD1024",
+   "any update?"
+  ],
+  "expected_intent": "refund",
+  "expected_phrase": "still awaiting",
+  "expected_status": "AWAITING_APPROVAL"
+ },
+ {
+  "id": "S13",
+  "category": "refund",
+  "customer": "C101",
+  "messages": [
+   "My package arrived damaged, order ORD1024"
+  ],
+  "expected_intent": "replacement",
+  "expected_phrase": "awaiting support approval",
+  "expected_status": "AWAITING_APPROVAL"
+ },
+ {
+  "id": "S14",
+  "category": "ineligible",
+  "customer": "C101",
+  "messages": [
+   "Refund order ORD1025"
+  ],
+  "expected_intent": "refund",
+  "expected_phrase": "outside the 30-day window",
+  "expected_status": null
+ },
+ {
+  "id": "S15",
+  "category": "ineligible",
+  "customer": "C101",
+  "messages": [
+   "Return order ORD1025"
+  ],
+  "expected_intent": "return",
+  "expected_phrase": "outside the 15-day window",
+  "expected_status": null
+ },
+ {
+  "id": "S16",
+  "category": "ineligible",
+  "customer": "C101",
+  "messages": [
+   "Cancel order ORD1026"
+  ],
+  "expected_intent": "cancellation",
+  "expected_phrase": "already shipped",
+  "expected_status": null
+ },
+ {
+  "id": "S17",
+  "category": "ineligible",
+  "customer": "C102",
+  "messages": [
+   "Cancel order ORD1028"
+  ],
+  "expected_intent": "cancellation",
+  "expected_phrase": "already cancelled",
+  "expected_status": null
+ },
+ {
+  "id": "S18",
+  "category": "auto_approved",
+  "customer": "C102",
+  "messages": [
+   "Cancel order ORD1027"
+  ],
+  "expected_intent": "cancellation",
+  "expected_phrase": "cancellation for order ORD1027",
+  "expected_status": "RESOLVED"
+ },
+ {
+  "id": "S19",
+  "category": "missing_info",
+  "customer": "C101",
+  "messages": [
+   "I want a refund"
+  ],
+  "expected_intent": "refund",
+  "expected_phrase": "order ID",
+  "expected_status": null
+ },
+ {
+  "id": "S20",
+  "category": "missing_info",
+  "customer": "C101",
+  "messages": [
+   "Where is my order?"
+  ],
+  "expected_intent": "order_status",
+  "expected_phrase": "order ID",
+  "expected_status": null
+ },
+ {
+  "id": "S21",
+  "category": "missing_info",
+  "customer": "C101",
+  "messages": [
+   "Where is my ticket?"
+  ],
+  "expected_intent": "existing_ticket",
+  "expected_phrase": "ticket ID",
+  "expected_status": null
+ },
+ {
+  "id": "S22",
+  "category": "memory",
+  "customer": "C101",
+  "messages": [
+   "I want a refund",
+   "ORD1025"
+  ],
+  "expected_intent": "refund",
+  "expected_phrase": "outside the 30-day window",
+  "expected_status": null
+ },
+ {
+  "id": "S23",
+  "category": "memory",
+  "customer": "C101",
+  "messages": [
+   "Where is order ORD1024?",
+   "Can I return it?"
+  ],
+  "expected_intent": "return",
+  "expected_phrase": "awaiting support approval",
+  "expected_status": "AWAITING_APPROVAL"
+ },
+ {
+  "id": "S24",
+  "category": "existing_ticket",
+  "customer": "C101",
+  "messages": [
+   "I want a refund for order ORD1024"
+  ],
+  "expected_intent": "existing_ticket",
+  "expected_phrase": "is RESOLVED",
+  "expected_status": "RESOLVED",
+  "decision": "approve",
+  "followups": [
+   "What is the status of {ticket}?"
+  ]
+ },
+ {
+  "id": "S25",
+  "category": "existing_ticket",
+  "customer": "C101",
+  "messages": [
+   "What is the status of TKT-9999?"
+  ],
+  "expected_intent": "existing_ticket",
+  "expected_phrase": "not found on your account",
+  "expected_status": null
+ },
+ {
+  "id": "S26",
+  "category": "security",
+  "customer": "C102",
+  "messages": [
+   "Where is order ORD1024?"
+  ],
+  "expected_intent": "order_status",
+  "expected_phrase": "not found on your account",
+  "expected_status": null
+ },
+ {
+  "id": "S27",
+  "category": "security",
+  "customer": "C102",
+  "messages": [
+   "Refund order ORD1024"
+  ],
+  "expected_intent": "refund",
+  "expected_phrase": "not found on your account",
+  "expected_status": null
+ },
+ {
+  "id": "S28",
+  "category": "retry",
+  "customer": "C101",
+  "messages": [
+   "I want a refund for order ORD1024"
+  ],
+  "expected_intent": "refund",
+  "expected_phrase": "processed (simulated) and verified",
+  "expected_status": "RESOLVED",
+  "decision": "approve",
+  "fail_next": 1,
+  "expected_retries": 1
+ },
+ {
+  "id": "S29",
+  "category": "retry",
+  "customer": "C101",
+  "messages": [
+   "Return order ORD1024"
+  ],
+  "expected_intent": "return",
+  "expected_phrase": "manual handling",
+  "expected_status": "FAILED",
+  "decision": "approve",
+  "fail_next": 3,
+  "expected_retries": 3
+ },
+ {
+  "id": "S30",
+  "category": "safety",
+  "customer": "C101",
+  "messages": [
+   "Refund order ORD1024"
+  ],
+  "expected_intent": "refund",
+  "expected_phrase": "processed (simulated) and verified",
+  "expected_status": "RESOLVED",
+  "decision": "approve",
+  "repeat_decision": true
+ },
+ {
+  "id": "S31",
+  "category": "other",
+  "customer": "C101",
+  "messages": [
+   "hello"
+  ],
+  "expected_intent": "other",
+  "expected_phrase": "I can help with",
+  "expected_status": null
+ },
+ {
+  "id": "S32",
+  "category": "hard_wording",
+  "customer": "C101",
+  "messages": [
+   "This item is faulty, I'd like to send it back. ORD1024"
+  ],
+  "expected_intent": "return",
+  "expected_phrase": "awaiting support approval",
+  "expected_status": "AWAITING_APPROVAL"
+ },
+ {
+  "id": "S33",
+  "category": "hard_wording",
+  "customer": "C101",
+  "messages": [
+   "Is my parcel on its way? ORD1026"
+  ],
+  "expected_intent": "order_status",
+  "expected_phrase": "in transit",
+  "expected_status": null
+ },
+ {
+  "id": "S34",
+  "category": "hard_wording",
+  "customer": "C101",
+  "messages": [
+   "How long do I have to send things back?"
+  ],
+  "expected_intent": "policy_question",
+  "expected_phrase": "within 15 days",
+  "expected_status": null
+ }
+]

@@ -1,0 +1,58 @@
+{
+  "workflow_evaluation": {
+    "scenarios": 34,
+    "results": [
+      {
+        "classifier": "keyword",
+        "scenarios": 34,
+        "intent_accuracy": 0.9117647058823529,
+        "outcome_accuracy": 0.9117647058823529,
+        "safety": 1.0,
+        "pass_rate": 0.9117647058823529,
+        "avg_latency_s": 0.032686854264707174,
+        "by_category": {
+          "order_status": 1.0,
+          "policy": 1.0,
+          "refund": 1.0,
+          "return": 1.0,
+          "replacement": 1.0,
+          "approval_gate": 1.0,
+          "ineligible": 1.0,
+          "auto_approved": 1.0,
+          "missing_info": 1.0,
+          "memory": 1.0,
+          "existing_ticket": 1.0,
+          "security": 1.0,
+          "retry": 1.0,
+          "safety": 1.0,
+          "other": 1.0,
+          "hard_wording": 0.0
+        },
+        "errors": 0,
+        "failures": [
+          {
+            "id": "S32",
+            "category": "hard_wording",
+            "question": "This item is faulty, I'd like to send it back. ORD1024",
+            "expected": "intent=return, status=AWAITING_APPROVAL, retries=0, text contains 'awaiting support approval'",
+            "got": "intent=other, status=None, retries=0, safe=True, text='I can help with order status, returns, refunds, replacements, cancellations, policies and ticket status. What do you nee'"
+          },
+          {
+            "id": "S33",
+            "category": "hard_wording",
+            "question": "Is my parcel on its way? ORD1026",
+            "expected": "intent=order_status, status=None, retries=0, text contains 'in transit'",
+            "got": "intent=other, status=None, retries=0, safe=True, text='I can help with order status, returns, refunds, replacements, cancellations, policies and ticket status. What do you nee'"
+          },
+          {
+            "id": "S34",
+            "category": "hard_wording",
+            "question": "How long do I have to send things back?",
+            "expected": "intent=policy_question, status=None, retries=0, text contains 'within 15 days'",
+            "got": "intent=other, status=None, retries=0, safe=True, text='I can help with order status, returns, refunds, replacements, cancellations, policies and ticket status. What do you nee'"
+          }
+        ]
+      }
+    ]
+  }
+}

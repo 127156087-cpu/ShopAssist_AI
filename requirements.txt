@@ -1,0 +1,8 @@
+langgraph==1.2.15
+langgraph-checkpoint-sqlite==3.1.2
+langchain-core
+langchain-groq
+pydantic
+python-dotenv
+fastapi
+uvicorn

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShopAssist AI</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h1>ShopAssist AI</h1>
+
+    <section>
+      <h2>Customer</h2>
+      <select id="customer"></select>
+      <button id="new-chat" class="secondary">New conversation</button>
+      <p class="muted">Customers only see their own orders and tickets.</p>
+    </section>
+
+    <section>
+      <h2>Try these</h2>
+      <ul class="examples" id="examples">
+        <li>Where is order ORD1024?</li>
+        <li>What is your return policy?</li>
+        <li>I received a damaged product. I want a refund for order ORD1024.</li>
+        <li>Refund order ORD1025</li>
+        <li>Cancel order ORD1026</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Demo controls</h2>
+      <p class="muted">Make the next simulated action fail, to show retries.</p>
+      <button class="secondary" data-fail="1">Fail next 1x</button>
+      <button class="secondary" data-fail="3">Fail next 3x</button>
+      <p id="fail-msg" class="muted"></p>
+    </section>
+  </aside>
+
+  <main>
+    <nav class="tabs">
+      <button class="tab active" data-tab="chat">Chat</button>
+      <button class="tab" data-tab="dashboard">Dashboard</button>
+      <button class="tab" data-tab="ticket">Ticket</button>
+      <button class="tab" data-tab="eval">Evaluation</button>
+    </nav>
+
+    <div id="tab-chat">
+      <div id="chat-log" class="chat-log"></div>
+      <div class="ask-row">
+        <input type="text" id="message" placeholder="e.g. Where is order ORD1024?" autocomplete="off">
+        <button id="send">Send</button>
+      </div>
+      <p id="error" class="error" hidden></p>
+    </div>
+
+    <div id="tab-dashboard" hidden>
+      <div id="counts" class="chips"></div>
+      <div class="ask-row">
+        <input type="text" id="search" placeholder="Search tickets...">
+        <select id="status-filter">
+          <option value="">All statuses</option>
+          <option>AWAITING_APPROVAL</option><option>IN_PROGRESS</option><option>RESOLVED</option>
+          <option>REJECTED</option><option>FAILED</option>
+        </select>
+      </div>
+      <table>
+        <thead><tr><th>Ticket</th><th>Customer</th><th>Order</th><th>Category</th><th>Priority</th><th>Status</th><th>Created</th></tr></thead>
+        <tbody id="ticket-rows"></tbody>
+      </table>
+      <p id="no-tickets" class="muted" hidden>No tickets yet. Send a refund request from the Chat tab.</p>
+    </div>
+
+    <div id="tab-ticket" hidden>
+      <p id="ticket-empty" class="muted">Open a ticket from the Dashboard (or from the chat) to see it here.</p>
+      <div id="ticket-view" hidden>
+        <h2 id="ticket-title"></h2>
+        <div class="two-col">
+          <div class="card"><h3>Ticket information</h3><div id="ticket-info" class="kv"></div></div>
+          <div class="card"><h3>Agent findings</h3><div id="ticket-findings"></div></div>
+        </div>
+        <div class="two-col">
+          <div class="card"><h3>Live workflow monitor</h3><p class="muted">Real graph events, streamed with SSE.</p><div id="monitor" class="monitor"></div></div>
+          <div>
+            <div class="card"><h3>Human approval</h3><div id="approval"></div></div>
+            <div class="card"><h3>Ticket timeline</h3><div id="timeline" class="timeline"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-eval" hidden>
+      <p class="muted">Runs <span id="scenario-count">the</span> scenarios through the real workflow on a temporary database and scores intent, outcome and safety.</p>
+      <button id="eval-btn">Run evaluation</button>
+      <p id="eval-status" class="muted"></p>
+      <div id="eval-results"></div>
+    </div>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

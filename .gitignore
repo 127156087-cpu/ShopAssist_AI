@@ -1,0 +1,19 @@
+# Secrets (never commit your API key)
+.env
+
+# Virtual environment
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Generated data (rebuilds automatically)
+data/db/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
